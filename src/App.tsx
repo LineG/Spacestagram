@@ -1,7 +1,13 @@
-import "./styles.css";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
+import { Card } from "./components/card";
 
-const App = () => {
-  return <div className="App">NASA Space Instagram</div>;
+export const App = () => {
+  return (
+    <Provider store={store}>
+      <div>
+        <Card />
+      </div>
+    </Provider>
+  );
 };
-
-export default App;
