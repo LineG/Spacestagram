@@ -1,13 +1,15 @@
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import { Card } from "./components/card";
+import { MainPage } from "./components/MainPage";
+import { AppProvider } from "@shopify/polaris";
+import "@shopify/polaris/build/esm/styles.css";
 
 export const App = () => {
   return (
-    <Provider store={store}>
-      <div>
-        <Card />
-      </div>
-    </Provider>
+    <AppProvider i18n={{}} theme={{ colorScheme: "light" }}>
+      <Provider store={store}>
+        <MainPage />
+      </Provider>
+    </AppProvider>
   );
 };
