@@ -17,11 +17,12 @@ export function fetchImagesLoading() {
 export function fetchImagesSuccess(photos: Photos) {
   return {
     type: FETCH_IMAGES_SUCCESS,
-    imagesPayload: photos.photos
+    payload: photos.photos
   };
 }
 
 export function fetchImagesFailure(error: string) {
+  // console.log(error)
   return {
     type: FETCH_IMAGES_ERROR,
     error: error

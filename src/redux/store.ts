@@ -1,11 +1,14 @@
-import { createStore, applyMiddleware } from "redux";
-import { composeWithDevTools } from "redux-devtools-extension";
-import logger from "redux-logger";
-import thunk from "redux-thunk";
+import { imagesReducer } from "./reducer";
+import { configureStore } from '@reduxjs/toolkit'
 
-import rootReducer from "./rootReducer";
 
-export const store = createStore(
-  rootReducer,
-  composeWithDevTools(applyMiddleware(logger, thunk))
-);
+export const store = configureStore({
+  reducer: {
+    images: imagesReducer,
+  },
+})
+
+export type RootState = ReturnType<typeof store.getState>
+
+export type AppDispatch = typeof store.dispatch
+

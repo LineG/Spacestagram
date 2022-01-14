@@ -27,11 +27,12 @@ export interface Image {
 interface ImagesState {
   loading: boolean;
   imagesPayload?: Image[];
-  error?: undefined;
+  error?: any;
 }
 
 const initialState: ImagesState = {
-  loading: false
+  loading: false, 
+  imagesPayload: undefined
 };
 
 export function imagesReducer(state = initialState, action: any) {
@@ -39,13 +40,13 @@ export function imagesReducer(state = initialState, action: any) {
     case FETCH_IMAGES_LOADING:
       return {
         ...state,
-        imagesPayload: true
+        loading: true
       };
     case FETCH_IMAGES_SUCCESS:
       return {
         ...state,
         loading: false,
-        imagesPayload: action.imagesPayload
+        imagesPayload: action.payload
       };
     case FETCH_IMAGES_ERROR:
       return {
